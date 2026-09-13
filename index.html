@@ -113,6 +113,7 @@
       var script = document.createElement("script");
       script.src = loaderUrl;
       script.onload = () => {
+        config.devicePixelRatio = (function(){var m=/[?&]dpr=([0-9.]+)/.exec(location.search);return m?parseFloat(m[1]):1;})();
         createUnityInstance(canvas, config, (progress) => {
           document.querySelector("#unity-progress-bar-full").style.width = 100 * progress + "%";
               }).then((unityInstance) => {
